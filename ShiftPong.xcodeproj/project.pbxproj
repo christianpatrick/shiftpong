@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13BCC1871A53AE4D00342645 /* ShiftPong. */ = {
+		13BCC1871A53AE4D00342645 /* ShiftPong */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13BCC1B01A53AE4E00342645 /* Build configuration list for PBXNativeTarget "ShiftPong." */;
+			buildConfigurationList = 13BCC1B01A53AE4E00342645 /* Build configuration list for PBXNativeTarget "ShiftPong" */;
 			buildPhases = (
 				13BCC1841A53AE4D00342645 /* Sources */,
 				13BCC1851A53AE4D00342645 /* Frameworks */,
@@ -158,7 +158,7 @@
 			);
 			dependencies = (
 			);
-			name = ShiftPong.;
+			name = ShiftPong;
 			productName = ShiftPong;
 			productReference = 13BCC1881A53AE4D00342645 /* ShiftPong.app */;
 			productType = "com.apple.product-type.application";
@@ -196,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13BCC1871A53AE4D00342645 /* ShiftPong. */,
+				13BCC1871A53AE4D00342645 /* ShiftPong */,
 			);
 		};
 /* End PBXProject section */
@@ -413,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13BCC1B01A53AE4E00342645 /* Build configuration list for PBXNativeTarget "ShiftPong." */ = {
+		13BCC1B01A53AE4E00342645 /* Build configuration list for PBXNativeTarget "ShiftPong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13BCC1B11A53AE4E00342645 /* Debug */,
