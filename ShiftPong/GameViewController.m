@@ -9,7 +9,6 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "GameState.h"
-#import <iAd/iAd.h>
 
 @interface GameViewController()
 
@@ -39,14 +38,9 @@
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-//    [super viewDidAppear:animated];
-    
-    ADBannerView *adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
-    [self.view addSubview:adView];
-    
-}
+// - (void)viewDidAppear:(BOOL)animated {
+//     [super viewDidAppear:animated];
+// }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -65,7 +59,7 @@
             playerName.text = player.displayName;
             playerStatus.text = @"Player is not underage";
             [[GameCenterManager sharedManager] localPlayerPhoto:^(UIImage *playerPhoto) {
-                playerPicture.image = playerPhoto;
+//                playerPicture.image = playerPhoto;
             }];
         } else {
             playerName.text = player.displayName;
@@ -84,12 +78,12 @@
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     if (!skView.scene) {
-        skView.showsFPS = YES;
-        skView.showsNodeCount = YES;
+        // skView.showsFPS = YES;
+        // skView.showsNodeCount = YES;
         
         // Create and configure the scene.
         SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
-        scene.scaleMode = SKSceneScaleModeAspectFill;
+        scene.scaleMode = SKSceneScaleModeResizeFill;
         
         // Present the scene.
         [skView presentScene:scene];
@@ -97,28 +91,9 @@
     }
 }
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 #pragma mark - GameCenter Manager Delegate
@@ -140,7 +115,7 @@
             playerName.text = player.displayName;
             playerStatus.text = @"Player is not underage and is signed-in";
             [[GameCenterManager sharedManager] localPlayerPhoto:^(UIImage *playerPhoto) {
-                playerPicture.image = playerPhoto;
+//                playerPicture.image = playerPhoto;
             }];
         } else {
             playerName.text = player.displayName;

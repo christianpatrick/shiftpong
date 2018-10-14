@@ -11,4 +11,6 @@
 
 @interface GameScene : SKScene<SKPhysicsContactDelegate>
 
+@property (strong, nonatomic) SKAction *hitSoundAction;
+
 @end
