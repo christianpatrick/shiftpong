@@ -9,7 +9,6 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "GameState.h"
-#import <iAd/iAd.h>
 
 @interface GameViewController()
 
@@ -42,9 +41,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 //    [super viewDidAppear:animated];
-    
-    ADBannerView *adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
-    [self.view addSubview:adView];
     
 }
 

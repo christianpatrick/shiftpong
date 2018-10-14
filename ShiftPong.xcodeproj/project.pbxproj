@@ -14,7 +14,6 @@
 		13877CBB1AD9BBDA00A904E5 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CB61AD9BBDA00A904E5 /* GameCenterManager.m */; };
 		13877CBC1AD9BBDA00A904E5 /* NSDataAES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CB81AD9BBDA00A904E5 /* NSDataAES256.m */; };
 		13877CBD1AD9BBDA00A904E5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CBA1AD9BBDA00A904E5 /* Reachability.m */; };
-		13955F171A6DBD3300DD6012 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13955F161A6DBD3200DD6012 /* iAd.framework */; };
 		13955F2D1A6F22C500DD6012 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 13955F2C1A6F22C500DD6012 /* hit.caf */; };
 		13B8C73A1A590A7500AFE527 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B8C7391A590A7500AFE527 /* GameState.m */; };
 		13BCC18E1A53AE4D00342645 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC18D1A53AE4D00342645 /* main.m */; };
@@ -47,7 +46,6 @@
 		13877CB81AD9BBDA00A904E5 /* NSDataAES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAES256.m; sourceTree = "<group>"; };
 		13877CB91AD9BBDA00A904E5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		13877CBA1AD9BBDA00A904E5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		13955F161A6DBD3200DD6012 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		13955F2C1A6F22C500DD6012 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = ../hit.caf; sourceTree = "<group>"; };
 		13B8C7381A590A7400AFE527 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		13B8C7391A590A7500AFE527 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 			files = (
 				13877CB41AD9BA9E00A904E5 /* SystemConfiguration.framework in Frameworks */,
 				13877CB21AD9BA9400A904E5 /* Security.framework in Frameworks */,
-				13955F171A6DBD3300DD6012 /* iAd.framework in Frameworks */,
 				13203FF81A593C50009A6765 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,7 +99,6 @@
 			children = (
 				13877CB31AD9BA9E00A904E5 /* SystemConfiguration.framework */,
 				13877CB11AD9BA9400A904E5 /* Security.framework */,
-				13955F161A6DBD3200DD6012 /* iAd.framework */,
 				13203FF71A593C4F009A6765 /* GameKit.framework */,
 				13BCC18A1A53AE4D00342645 /* ShiftPong */,
 				13BCC1A91A53AE4E00342645 /* ShiftPongTests */,
@@ -287,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
