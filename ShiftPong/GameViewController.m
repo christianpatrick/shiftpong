@@ -38,11 +38,9 @@
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-//    [super viewDidAppear:animated];
-    
-}
+// - (void)viewDidAppear:(BOOL)animated {
+//     [super viewDidAppear:animated];
+// }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -61,7 +59,7 @@
             playerName.text = player.displayName;
             playerStatus.text = @"Player is not underage";
             [[GameCenterManager sharedManager] localPlayerPhoto:^(UIImage *playerPhoto) {
-                playerPicture.image = playerPhoto;
+//                playerPicture.image = playerPhoto;
             }];
         } else {
             playerName.text = player.displayName;
@@ -85,7 +83,7 @@
         
         // Create and configure the scene.
         SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
-        // scene.scaleMode = SKSceneScaleModeAspectFill;
+        scene.scaleMode = SKSceneScaleModeResizeFill;
         
         // Present the scene.
         [skView presentScene:scene];
@@ -93,28 +91,9 @@
     }
 }
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 #pragma mark - GameCenter Manager Delegate
@@ -136,7 +115,7 @@
             playerName.text = player.displayName;
             playerStatus.text = @"Player is not underage and is signed-in";
             [[GameCenterManager sharedManager] localPlayerPhoto:^(UIImage *playerPhoto) {
-                playerPicture.image = playerPhoto;
+//                playerPicture.image = playerPhoto;
             }];
         } else {
             playerName.text = player.displayName;
