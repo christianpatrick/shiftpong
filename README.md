@@ -6,7 +6,7 @@ You control BOTH paddles! Simply tap the screen and the paddles reverse directio
 
 Fun, Simple and Addicting!
 
-<a href="https://itunes.apple.com/us/app/shiftpong/id955314303?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;"></a>
+You can download the game directly from the Apple App Store here: [https://itunes.apple.com/us/app/shiftpong/id955314303](https://itunes.apple.com/us/app/shiftpong/id955314303)
 
 You can read about the history and updates to the game here: [https://mynameischristian.com/shiftpong-update](https://mynameischristian.com/shiftpong-update)
 
