@@ -11,8 +11,7 @@
 
 @implementation GameState
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
     static dispatch_once_t pred = 0;
     static GameState *_sharedInstance = nil;
     
@@ -22,8 +21,7 @@
     return _sharedInstance;
 }
 
-- (id) init
-{
+- (id) init {
     if (self = [super init]) {
         // Init
         _Score = 0;
@@ -39,8 +37,7 @@
     return self;
 }
 
-- (void) saveState
-{
+- (void) saveState {
     // Update highScore if the current score is greater
     _highScore = MAX(_Score, _highScore);
     

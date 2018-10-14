@@ -13,6 +13,7 @@ BOOL tapped;
 BOOL hit;
 static NSString* ballCategoryName = @"ball";
 static NSString* paddleCategoryName = @"paddle";
+static CGFloat paddleSpeed = 250;
 SKSpriteNode* toppaddle;
 SKSpriteNode* botpaddle;
 SKSpriteNode* ball;
@@ -44,17 +45,16 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
         
     }
     
-    self.physicsWorld.gravity = CGVectorMake(0.0f, 0.0f);
+    self.physicsWorld.gravity = CGVectorMake(0, 0);
     self.physicsWorld.contactDelegate = self;
     
     //border for bounce
-
     CGRect bodyRect = CGRectMake(CGRectGetMidX(self.frame) - (self.frame.size.width)/2, CGRectGetMidY(self.frame) - (self.frame.size.width + 40)/2, self.frame.size.width, self.frame.size.width + 80);
+    
     
     CGRect colorRect = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.width - 50)/2, self.frame.size.width, self.frame.size.width - 25);
     
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bodyRect];
-    self.physicsBody.friction = 0.0f;
     
     SKShapeNode *bgRect = [[SKShapeNode alloc] init];
     bgRect.path = [UIBezierPath bezierPathWithRect:colorRect].CGPath;
@@ -64,40 +64,41 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
     [self createHUD];
     
     //ball
-    ball = [SKSpriteNode spriteNodeWithImageNamed: @"ball"];
-    ball.name = ballCategoryName;
+    ball = [[SKSpriteNode alloc] initWithImageNamed: @"ball"];
+    ball.size = CGSizeMake(25, 25);
     ball.position = CGPointMake(CGRectGetMidX(colorRect), CGRectGetMidY(colorRect));
-    [self addChild:ball];
+    ball.name = ballCategoryName;
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.frame.size.width/2];
     ball.physicsBody.friction = 0.0f;
     ball.physicsBody.restitution = 1.0f;
     ball.physicsBody.linearDamping = 0.0f;
     ball.physicsBody.allowsRotation = YES;
     ball.physicsBody.dynamic = NO;
+    [self addChild:ball];
     
     //top paddle
     toppaddle = [[SKSpriteNode alloc] initWithImageNamed: @"paddle"];
     toppaddle.name = paddleCategoryName;
-    toppaddle.position = CGPointMake(CGRectGetMidX(colorRect), CGRectGetMaxY(colorRect) + 3);
-    [self addChild:toppaddle];
+    toppaddle.position = CGPointMake(CGRectGetMidX(colorRect), CGRectGetMaxY(colorRect) + 4);
     toppaddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(toppaddle.frame.size.width, toppaddle.frame.size.height)];
     toppaddle.physicsBody.restitution = 0.0f;
     toppaddle.physicsBody.friction = 0.0f;
     toppaddle.physicsBody.allowsRotation = NO;
     toppaddle.physicsBody.dynamic = NO;
     botpaddle.physicsBody.usesPreciseCollisionDetection = YES;
+    [self addChild:toppaddle];
     
     //bottom paddle
     botpaddle = [[SKSpriteNode alloc] initWithImageNamed: @"paddle"];
     botpaddle.name = paddleCategoryName;
-    botpaddle.position = CGPointMake(CGRectGetMidX(colorRect), CGRectGetMinY(colorRect) - 3);
-    [self addChild:botpaddle];
+    botpaddle.position = CGPointMake(CGRectGetMidX(colorRect), CGRectGetMinY(colorRect) - 4);
     botpaddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(botpaddle.frame.size.width, toppaddle.frame.size.height)];
     botpaddle.physicsBody.restitution = 0.0f;
     botpaddle.physicsBody.friction = 0.0f;
     botpaddle.physicsBody.allowsRotation = NO;
     botpaddle.physicsBody.dynamic = NO;
     botpaddle.physicsBody.usesPreciseCollisionDetection = YES;
+    [self addChild:botpaddle];
     
     //top outofbounds
     CGRect topRect = CGRectMake(bodyRect.origin.x, CGRectGetMaxY(bodyRect), bodyRect.size.width, 1);
@@ -133,6 +134,9 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
     [beforeGame addChild:self.bottomText];
     
     tapped = false;
+
+    // get sound loaded in memory
+//    _hitSoundAction = [SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO];
     
     return self;
 }
@@ -155,16 +159,16 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
         if (ball.physicsBody.velocity.dy <= 0 && hit == true) {
             [GameState sharedInstance].Score+=1;
             self.ScoreNode.text=[NSString stringWithFormat:@"%d",[GameState sharedInstance].Score];
-            ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.4, 0);
-            [ball.physicsBody applyImpulse:CGVectorMake(0, -2.1f)];
-            [self runAction:[SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO]];
+            ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.5, 0);
+            [ball.physicsBody applyImpulse:CGVectorMake(0, -4)];
+//            [self runAction:_hitSoundAction];
             hit = false;
             
             if ([GameState sharedInstance].Score%3 == 0) {
                 CGFloat hue = ( arc4random() % 256 / 256.0 ); // 0.0 to 1.0
-                CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.1; // 0.5 to 1.0, away from white
-                CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.7; // 0.5 to 1.0, away from black
-                self.backgroundColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0];
+                CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.6; // 0.5 to 1.0, away from white
+                CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.9; // 0.5 to 1.0, away from black
+                self.backgroundColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0.8];
             }
         }
     }
@@ -174,16 +178,16 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
         if (ball.physicsBody.velocity.dy >= 0 && hit == false) {
             [GameState sharedInstance].Score+=1;
             self.ScoreNode.text=[NSString stringWithFormat:@"%d",[GameState sharedInstance].Score];
-            ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.4, 0);
-            [ball.physicsBody applyImpulse:CGVectorMake(0, 2.1f)];
-            [self runAction:[SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO]];
+            ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.5, 0);
+            [ball.physicsBody applyImpulse:CGVectorMake(0, 4)];
+//            [self runAction:_hitSoundAction];
             hit = true;
             
             if ([GameState sharedInstance].Score%3 == 0) {
                 CGFloat hue = ( arc4random() % 256 / 256.0 ); // 0.0 to 1.0
-                CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.1; // 0.5 to 1.0, away from white
-                CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.7; // 0.5 to 1.0, away from black
-                self.backgroundColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0];
+                CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.6; // 0.5 to 1.0, away from white
+                CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.9; // 0.5 to 1.0, away from black
+                self.backgroundColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0.8];
             }
         }
     }
@@ -243,9 +247,9 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
     CGPoint botdiff = CGPointMake(botpaddle.position.x, botpaddle.position.y);
     
     if (ball.physicsBody.dynamic) {} else {
-        ball.physicsBody.dynamic = YES;
         hit = false;
-        [ball.physicsBody applyImpulse:CGVectorMake(.7f, -1.7f)];
+        ball.physicsBody.dynamic = YES;
+        [ball.physicsBody applyImpulse:CGVectorMake(1.5, -4)];
         [beforeGame runAction:[SKAction removeFromParent]];
     }
     
@@ -259,25 +263,25 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
         tapped = false;
         
         //TOP
-        CGPathMoveToPoint(toppathstart, NULL, topdiff.x, CGRectGetMaxY(colorRect) + 3);
-        CGPathAddLineToPoint(toppathstart, NULL, CGRectGetMaxX(colorRect), CGRectGetMaxY(colorRect) + 3);
-        SKAction *toplinestart = [SKAction followPath:toppathstart asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(toppathstart, NULL, topdiff.x, CGRectGetMaxY(colorRect) + 4);
+        CGPathAddLineToPoint(toppathstart, NULL, CGRectGetMaxX(colorRect) + 25, CGRectGetMaxY(colorRect) + 4);
+        SKAction *toplinestart = [SKAction followPath:toppathstart asOffset:NO orientToPath:NO speed:paddleSpeed];
         
-        CGPathMoveToPoint(toppath, NULL, CGRectGetMinX(colorRect), CGRectGetMaxY(colorRect) + 3);
-        CGPathAddLineToPoint(toppath, NULL, CGRectGetMaxX(colorRect), CGRectGetMaxY(colorRect) + 3);
-        SKAction *topline = [SKAction followPath:toppath asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(toppath, NULL, CGRectGetMinX(colorRect) - 25, CGRectGetMaxY(colorRect) + 4);
+        CGPathAddLineToPoint(toppath, NULL, CGRectGetMaxX(colorRect) + 25, CGRectGetMaxY(colorRect) + 4);
+        SKAction *topline = [SKAction followPath:toppath asOffset:NO orientToPath:NO speed:paddleSpeed];
         SKAction *tlrepeat = [SKAction repeatActionForever:topline];
         
         SKAction *tlseq = [SKAction sequence:@[toplinestart, tlrepeat]];
         
         //BOTTOM
-        CGPathMoveToPoint(botpathstart, NULL, botdiff.x, CGRectGetMinY(colorRect) - 3);
-        CGPathAddLineToPoint(botpathstart, NULL, CGRectGetMinX(colorRect), CGRectGetMinY(colorRect) - 3);
-        SKAction *botlinestart = [SKAction followPath:botpathstart asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(botpathstart, NULL, botdiff.x, CGRectGetMinY(colorRect) - 4);
+        CGPathAddLineToPoint(botpathstart, NULL, CGRectGetMinX(colorRect) - 25, CGRectGetMinY(colorRect) - 4);
+        SKAction *botlinestart = [SKAction followPath:botpathstart asOffset:NO orientToPath:NO speed:paddleSpeed];
         
-        CGPathMoveToPoint(botpath, NULL, CGRectGetMaxX(colorRect), CGRectGetMinY(colorRect) - 3);
-        CGPathAddLineToPoint(botpath, NULL, CGRectGetMinX(colorRect), CGRectGetMinY(colorRect) - 3);
-        SKAction *botline = [SKAction followPath:botpath asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(botpath, NULL, CGRectGetMaxX(colorRect) + 25, CGRectGetMinY(colorRect) - 4);
+        CGPathAddLineToPoint(botpath, NULL, CGRectGetMinX(colorRect) - 25, CGRectGetMinY(colorRect) - 4);
+        SKAction *botline = [SKAction followPath:botpath asOffset:NO orientToPath:NO speed:paddleSpeed];
         SKAction *blrepeat = [SKAction repeatActionForever:botline];
         
         SKAction *blseq = [SKAction sequence:@[botlinestart, blrepeat]];
@@ -291,25 +295,25 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
         tapped = true;
         
         //TOP
-        CGPathMoveToPoint(toppathstart, NULL, topdiff.x, CGRectGetMaxY(colorRect) + 3);
-        CGPathAddLineToPoint(toppathstart, NULL, CGRectGetMinX(colorRect), CGRectGetMaxY(colorRect) + 3);
-        SKAction *toplinestart = [SKAction followPath:toppathstart asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(toppathstart, NULL, topdiff.x, CGRectGetMaxY(colorRect) + 4);
+        CGPathAddLineToPoint(toppathstart, NULL, CGRectGetMinX(colorRect) - 25, CGRectGetMaxY(colorRect) + 4);
+        SKAction *toplinestart = [SKAction followPath:toppathstart asOffset:NO orientToPath:NO speed:paddleSpeed];
         
-        CGPathMoveToPoint(toppath, NULL, CGRectGetMaxX(colorRect), CGRectGetMaxY(colorRect) + 3);
-        CGPathAddLineToPoint(toppath, NULL, CGRectGetMinX(colorRect), CGRectGetMaxY(colorRect) + 3);
-        SKAction *topline = [SKAction followPath:toppath asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(toppath, NULL, CGRectGetMaxX(colorRect) + 25, CGRectGetMaxY(colorRect) + 4);
+        CGPathAddLineToPoint(toppath, NULL, CGRectGetMinX(colorRect) - 25, CGRectGetMaxY(colorRect) + 4);
+        SKAction *topline = [SKAction followPath:toppath asOffset:NO orientToPath:NO speed:paddleSpeed];
         SKAction *tlrepeat = [SKAction repeatActionForever:topline];
         
         SKAction *tlseq = [SKAction sequence:@[toplinestart, tlrepeat]];
         
         //BOTTOM
-        CGPathMoveToPoint(botpathstart, NULL, botdiff.x, CGRectGetMinY(colorRect) - 3);
-        CGPathAddLineToPoint(botpathstart, NULL, CGRectGetMaxX(colorRect), CGRectGetMinY(colorRect) - 3);
-        SKAction *botlinestart = [SKAction followPath:botpathstart asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(botpathstart, NULL, botdiff.x, CGRectGetMinY(colorRect) - 4);
+        CGPathAddLineToPoint(botpathstart, NULL, CGRectGetMaxX(colorRect) + 25, CGRectGetMinY(colorRect) - 4);
+        SKAction *botlinestart = [SKAction followPath:botpathstart asOffset:NO orientToPath:NO speed:paddleSpeed];
         
-        CGPathMoveToPoint(botpath, NULL, CGRectGetMinX(colorRect), CGRectGetMinY(colorRect) - 3);
-        CGPathAddLineToPoint(botpath, NULL, CGRectGetMaxX(colorRect), CGRectGetMinY(colorRect) - 3);
-        SKAction *botline = [SKAction followPath:botpath asOffset:NO orientToPath:NO speed:250.0f];
+        CGPathMoveToPoint(botpath, NULL, CGRectGetMinX(colorRect) - 25, CGRectGetMinY(colorRect) - 4);
+        CGPathAddLineToPoint(botpath, NULL, CGRectGetMaxX(colorRect) + 25, CGRectGetMinY(colorRect) - 4);
+        SKAction *botline = [SKAction followPath:botpath asOffset:NO orientToPath:NO speed:paddleSpeed];
         SKAction *blrepeat = [SKAction repeatActionForever:botline];
         
         SKAction *blseq = [SKAction sequence:@[botlinestart, blrepeat]];
