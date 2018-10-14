@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13203FF81A593C50009A6765 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13203FF71A593C4F009A6765 /* GameKit.framework */; };
-		134AA4B11A59583C00040AD9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 134AA4B01A59583C00040AD9 /* Images.xcassets */; };
+		134AA4B11A59583C00040AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 134AA4B01A59583C00040AD9 /* Assets.xcassets */; };
 		13877CB21AD9BA9400A904E5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13877CB11AD9BA9400A904E5 /* Security.framework */; };
 		13877CB41AD9BA9E00A904E5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13877CB31AD9BA9E00A904E5 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		13877CBB1AD9BBDA00A904E5 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CB61AD9BBDA00A904E5 /* GameCenterManager.m */; };
@@ -20,24 +20,14 @@
 		13BCC1941A53AE4D00342645 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC1931A53AE4D00342645 /* GameScene.m */; };
 		13BCC1991A53AE4D00342645 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC1981A53AE4D00342645 /* GameViewController.m */; };
 		13BCC19C1A53AE4E00342645 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BCC19A1A53AE4E00342645 /* Main.storyboard */; };
-		13BCC1AD1A53AE4E00342645 /* ShiftPongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC1AC1A53AE4E00342645 /* ShiftPongTests.m */; };
 		13BCC1BC1A53C2EF00342645 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 13BCC1B61A53C2EE00342645 /* assets.atlas */; };
 		13D06C002172EB0900EE98A9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 13D06BFF2172EB0900EE98A9 /* hit.caf */; };
+		13D06C022173AEC500EE98A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13D06C012173AEC500EE98A9 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		13BCC1A71A53AE4E00342645 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 13BCC1801A53AE4D00342645 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13BCC1871A53AE4D00342645;
-			remoteInfo = ShiftPong;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		13203FF71A593C4F009A6765 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		134AA4B01A59583C00040AD9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		134AA4B01A59583C00040AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13877CB11AD9BA9400A904E5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		13877CB31AD9BA9E00A904E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		13877CB51AD9BBDA00A904E5 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
@@ -58,11 +48,11 @@
 		13BCC1971A53AE4D00342645 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		13BCC1981A53AE4D00342645 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		13BCC19B1A53AE4E00342645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		13BCC1A61A53AE4E00342645 /* ShiftPong.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShiftPong.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BCC1AB1A53AE4E00342645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BCC1AC1A53AE4E00342645 /* ShiftPongTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftPongTests.m; sourceTree = "<group>"; };
 		13BCC1B61A53C2EE00342645 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
 		13D06BFF2172EB0900EE98A9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit.caf; sourceTree = "<group>"; };
+		13D06C012173AEC500EE98A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,13 +63,6 @@
 				13877CB41AD9BA9E00A904E5 /* SystemConfiguration.framework in Frameworks */,
 				13877CB21AD9BA9400A904E5 /* Security.framework in Frameworks */,
 				13203FF81A593C50009A6765 /* GameKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13BCC1A31A53AE4E00342645 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				13BCC1881A53AE4D00342645 /* ShiftPong.app */,
-				13BCC1A61A53AE4E00342645 /* ShiftPong.Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				13D06BFF2172EB0900EE98A9 /* hit.caf */,
-				134AA4B01A59583C00040AD9 /* Images.xcassets */,
+				134AA4B01A59583C00040AD9 /* Assets.xcassets */,
 				13BCC1B61A53C2EE00342645 /* assets.atlas */,
 				13BCC18F1A53AE4D00342645 /* AppDelegate.h */,
 				13BCC1901A53AE4D00342645 /* AppDelegate.m */,
@@ -127,6 +109,7 @@
 				13877CBA1AD9BBDA00A904E5 /* Reachability.m */,
 				13BCC1971A53AE4D00342645 /* GameViewController.h */,
 				13BCC1981A53AE4D00342645 /* GameViewController.m */,
+				13D06C012173AEC500EE98A9 /* Launch Screen.storyboard */,
 				13BCC19A1A53AE4E00342645 /* Main.storyboard */,
 				13BCC18B1A53AE4D00342645 /* Supporting Files */,
 			);
@@ -180,31 +163,13 @@
 			productReference = 13BCC1881A53AE4D00342645 /* ShiftPong.app */;
 			productType = "com.apple.product-type.application";
 		};
-		13BCC1A51A53AE4E00342645 /* ShiftPong.Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 13BCC1B31A53AE4E00342645 /* Build configuration list for PBXNativeTarget "ShiftPong.Tests" */;
-			buildPhases = (
-				13BCC1A21A53AE4E00342645 /* Sources */,
-				13BCC1A31A53AE4E00342645 /* Frameworks */,
-				13BCC1A41A53AE4E00342645 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				13BCC1A81A53AE4E00342645 /* PBXTargetDependency */,
-			);
-			name = ShiftPong.Tests;
-			productName = ShiftPongTests;
-			productReference = 13BCC1A61A53AE4E00342645 /* ShiftPong.Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		13BCC1801A53AE4D00342645 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Blue App Development";
 				TargetAttributes = {
 					13BCC1871A53AE4D00342645 = {
@@ -215,11 +180,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					13BCC1A51A53AE4E00342645 = {
-						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = FWT25Q768M;
-						TestTargetID = 13BCC1871A53AE4D00342645;
 					};
 				};
 			};
@@ -237,7 +197,6 @@
 			projectRoot = "";
 			targets = (
 				13BCC1871A53AE4D00342645 /* ShiftPong. */,
-				13BCC1A51A53AE4E00342645 /* ShiftPong.Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,16 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D06C002172EB0900EE98A9 /* hit.caf in Resources */,
-				134AA4B11A59583C00040AD9 /* Images.xcassets in Resources */,
+				134AA4B11A59583C00040AD9 /* Assets.xcassets in Resources */,
 				13BCC1BC1A53C2EF00342645 /* assets.atlas in Resources */,
+				13D06C022173AEC500EE98A9 /* Launch Screen.storyboard in Resources */,
 				13BCC19C1A53AE4E00342645 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13BCC1A41A53AE4E00342645 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,23 +248,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13BCC1A21A53AE4E00342645 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13BCC1AD1A53AE4E00342645 /* ShiftPongTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		13BCC1A81A53AE4E00342645 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13BCC1871A53AE4D00342645 /* ShiftPong. */;
-			targetProxy = 13BCC1A71A53AE4E00342645 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		13BCC19A1A53AE4E00342645 /* Main.storyboard */ = {
@@ -333,13 +270,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -348,6 +295,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -360,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -376,13 +324,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -390,13 +348,14 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,13 +367,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = FWT25Q768M;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ShiftPong/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blue.ShiftPong;
 				PRODUCT_NAME = ShiftPong;
@@ -427,60 +386,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = FWT25Q768M;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ShiftPong/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blue.ShiftPong;
 				PRODUCT_NAME = ShiftPong;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		13BCC1B41A53AE4E00342645 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ShiftPongTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cphd.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ShiftPong.Tests;
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShiftPong.app/ShiftPong";
-			};
-			name = Debug;
-		};
-		13BCC1B51A53AE4E00342645 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ShiftPongTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cphd.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ShiftPong.Tests;
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShiftPong.app/ShiftPong";
 			};
 			name = Release;
 		};
@@ -501,15 +418,6 @@
 			buildConfigurations = (
 				13BCC1B11A53AE4E00342645 /* Debug */,
 				13BCC1B21A53AE4E00342645 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		13BCC1B31A53AE4E00342645 /* Build configuration list for PBXNativeTarget "ShiftPong.Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				13BCC1B41A53AE4E00342645 /* Debug */,
-				13BCC1B51A53AE4E00342645 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
