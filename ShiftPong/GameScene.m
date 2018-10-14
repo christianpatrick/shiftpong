@@ -156,7 +156,7 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
             [GameState sharedInstance].Score+=1;
             self.ScoreNode.text=[NSString stringWithFormat:@"%d",[GameState sharedInstance].Score];
             ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.4, 0);
-            [ball.physicsBody applyImpulse:CGVectorMake(0, -2.1f)];
+            [ball.physicsBody applyImpulse:CGVectorMake(0, -20.1f)];
             [self runAction:[SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO]];
             hit = false;
             
@@ -175,7 +175,7 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
             [GameState sharedInstance].Score+=1;
             self.ScoreNode.text=[NSString stringWithFormat:@"%d",[GameState sharedInstance].Score];
             ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.4, 0);
-            [ball.physicsBody applyImpulse:CGVectorMake(0, 2.1f)];
+            [ball.physicsBody applyImpulse:CGVectorMake(0, 20.1f)];
             [self runAction:[SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO]];
             hit = true;
             
@@ -245,7 +245,7 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
     if (ball.physicsBody.dynamic) {} else {
         ball.physicsBody.dynamic = YES;
         hit = false;
-        [ball.physicsBody applyImpulse:CGVectorMake(.7f, -1.7f)];
+        [ball.physicsBody applyImpulse:CGVectorMake(.7f, -10.7f)];
         [beforeGame runAction:[SKAction removeFromParent]];
     }
     

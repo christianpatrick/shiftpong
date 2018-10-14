@@ -14,7 +14,6 @@
 		13877CBB1AD9BBDA00A904E5 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CB61AD9BBDA00A904E5 /* GameCenterManager.m */; };
 		13877CBC1AD9BBDA00A904E5 /* NSDataAES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CB81AD9BBDA00A904E5 /* NSDataAES256.m */; };
 		13877CBD1AD9BBDA00A904E5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 13877CBA1AD9BBDA00A904E5 /* Reachability.m */; };
-		13955F2D1A6F22C500DD6012 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 13955F2C1A6F22C500DD6012 /* hit.caf */; };
 		13B8C73A1A590A7500AFE527 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B8C7391A590A7500AFE527 /* GameState.m */; };
 		13BCC18E1A53AE4D00342645 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC18D1A53AE4D00342645 /* main.m */; };
 		13BCC1911A53AE4D00342645 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC1901A53AE4D00342645 /* AppDelegate.m */; };
@@ -23,6 +22,7 @@
 		13BCC19C1A53AE4E00342645 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BCC19A1A53AE4E00342645 /* Main.storyboard */; };
 		13BCC1AD1A53AE4E00342645 /* ShiftPongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BCC1AC1A53AE4E00342645 /* ShiftPongTests.m */; };
 		13BCC1BC1A53C2EF00342645 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 13BCC1B61A53C2EE00342645 /* assets.atlas */; };
+		13D06C002172EB0900EE98A9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 13D06BFF2172EB0900EE98A9 /* hit.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,6 @@
 		13877CB81AD9BBDA00A904E5 /* NSDataAES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAES256.m; sourceTree = "<group>"; };
 		13877CB91AD9BBDA00A904E5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		13877CBA1AD9BBDA00A904E5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		13955F2C1A6F22C500DD6012 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = ../hit.caf; sourceTree = "<group>"; };
 		13B8C7381A590A7400AFE527 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		13B8C7391A590A7500AFE527 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
 		13BCC1881A53AE4D00342645 /* ShiftPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +62,7 @@
 		13BCC1AB1A53AE4E00342645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BCC1AC1A53AE4E00342645 /* ShiftPongTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftPongTests.m; sourceTree = "<group>"; };
 		13BCC1B61A53C2EE00342645 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
+		13D06BFF2172EB0900EE98A9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,14 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13955F241A6EB8EB00DD6012 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				13955F2C1A6F22C500DD6012 /* hit.caf */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
 		13BCC17F1A53AE4D00342645 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +110,8 @@
 		13BCC18A1A53AE4D00342645 /* ShiftPong */ = {
 			isa = PBXGroup;
 			children = (
+				13D06BFF2172EB0900EE98A9 /* hit.caf */,
 				134AA4B01A59583C00040AD9 /* Images.xcassets */,
-				13955F241A6EB8EB00DD6012 /* Sounds */,
 				13BCC1B61A53C2EE00342645 /* assets.atlas */,
 				13BCC18F1A53AE4D00342645 /* AppDelegate.h */,
 				13BCC1901A53AE4D00342645 /* AppDelegate.m */,
@@ -255,7 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13955F2D1A6F22C500DD6012 /* hit.caf in Resources */,
+				13D06C002172EB0900EE98A9 /* hit.caf in Resources */,
 				134AA4B11A59583C00040AD9 /* Images.xcassets in Resources */,
 				13BCC1BC1A53C2EF00342645 /* assets.atlas in Resources */,
 				13BCC19C1A53AE4E00342645 /* Main.storyboard in Resources */,
