@@ -49,8 +49,8 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
     self.physicsWorld.contactDelegate = self;
     
     //border for bounce
-
     CGRect bodyRect = CGRectMake(CGRectGetMidX(self.frame) - (self.frame.size.width)/2, CGRectGetMidY(self.frame) - (self.frame.size.width + 40)/2, self.frame.size.width, self.frame.size.width + 80);
+    
     
     CGRect colorRect = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame) - (self.frame.size.width - 50)/2, self.frame.size.width, self.frame.size.width - 25);
     
@@ -136,7 +136,7 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
     tapped = false;
 
     // get sound loaded in memory
-    _hitSoundAction = [SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO];
+//    _hitSoundAction = [SKAction playSoundFileNamed:@"hit.caf" waitForCompletion:NO];
     
     return self;
 }
@@ -161,7 +161,7 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
             self.ScoreNode.text=[NSString stringWithFormat:@"%d",[GameState sharedInstance].Score];
             ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.5, 0);
             [ball.physicsBody applyImpulse:CGVectorMake(0, -4)];
-            [self runAction:_hitSoundAction];
+//            [self runAction:_hitSoundAction];
             hit = false;
             
             if ([GameState sharedInstance].Score%3 == 0) {
@@ -180,7 +180,7 @@ static const uint32_t botPaddleCategory = 0x1 << 4;     // 000000000000000000000
             self.ScoreNode.text=[NSString stringWithFormat:@"%d",[GameState sharedInstance].Score];
             ball.physicsBody.velocity=CGVectorMake(ball.physicsBody.velocity.dx+0.5, 0);
             [ball.physicsBody applyImpulse:CGVectorMake(0, 4)];
-            [self runAction:_hitSoundAction];
+//            [self runAction:_hitSoundAction];
             hit = true;
             
             if ([GameState sharedInstance].Score%3 == 0) {
