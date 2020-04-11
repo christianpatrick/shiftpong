@@ -1,0 +1,74 @@
+go.property("ai", false)
+go.property("speed", vmath.vector3(500, 0, 0))
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	reverse = false
+	count = 0
+	self.original_position = go.get_position()
+end
+
+function update(self, dt)
+	if self.ai then
+		local posy = go.get_position().y
+		local xstart = -60
+		local xend = 700
+
+		if reverse then
+			if posy == 265 then
+				go.set_position(go.get_position() - self.speed * dt)
+
+				if go.get_position().x < xstart then
+					go.set_position(vmath.vector3(xend, posy, 0) - self.speed * dt)
+				end
+			else
+				go.set_position(go.get_position() + self.speed * dt)
+
+				if go.get_position().x > xend then
+					go.set_position(vmath.vector3(xstart, posy, 0) + self.speed * dt)
+				end
+			end
+		else
+			if posy == 265 then
+				go.set_position(go.get_position() + self.speed * dt)
+
+				if go.get_position().x > xend then
+					go.set_position(vmath.vector3(xstart, posy, 0) + self.speed * dt)
+				end
+			else
+				go.set_position(go.get_position() - self.speed * dt)
+				
+				if go.get_position().x < xstart then
+					go.set_position(vmath.vector3(xend, posy, 0) - self.speed * dt)
+				end
+			end
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("click") and self.speed == vmath.vector3(0, 0, 0) then
+		msg.post("ball", "game_restart")
+	elseif action_id == hash("click") and action.pressed then
+		if action.pressed and count > 0 then
+			if reverse then
+				reverse = false
+			else
+				reverse = true
+			end
+			count = 0
+		else
+			count = count + 1
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("game_over") then
+		go.set_position(self.original_position)
+		self.speed = vmath.vector3(0, 0, 0)
+		reverse = false
+	elseif message_id == hash("game_restart") then
+		self.speed = vmath.vector3(500, 0, 0)
+	end
+end

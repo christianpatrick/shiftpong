@@ -1,0 +1,47 @@
+go.property("direction", vmath.vector3())
+go.property("speed", 350)
+
+function init(self)
+	math.randomseed(os.time())
+	self.original_position = go.get_position()
+	self.direction = vmath.normalize(vmath.vector3(math.random(3, 7) * (math.random(-10, 10) > 0.5 and -1 or 1), math.random(3, 10), 0))
+end
+
+function update(self, dt)
+	local pos = go.get_position()
+	pos = pos + self.direction * self.speed * dt
+	go.set_position(pos)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") then
+		if message.normal.y ~= 0 then
+			self.direction.y = -self.direction.y
+		end
+		
+		if message.normal.x ~= 0 then
+			self.direction.x = -self.direction.x
+		end
+		
+		go.set_position(go.get_position() + message.normal * message.distance)
+		
+	elseif message.other_id == hash("/paddle2") then
+		msg.post("score", "increase_score_top")
+
+	elseif message.other_id == hash("/paddle1") then
+		msg.post("score", "increase_score_bottom")
+			
+	elseif message.group == hash("game_end") or message_id == hash("game_end") then
+		go.set_position(self.original_position)
+		msg.post("score", "game_over")
+		msg.post("paddle1", "game_over")
+		msg.post("paddle2", "game_over")
+		self.speed = 0
+		
+	elseif message_id == hash("game_restart") then
+		msg.post("paddle1", "game_restart")
+		msg.post("paddle2", "game_restart")
+		self.speed = 350
+		self.direction = vmath.normalize(vmath.vector3(math.random(3, 7) * (math.random(-10, 10) > 0.5 and -1 or 1), math.random(3, 10), 0))
+	end
+end

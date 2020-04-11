@@ -1,0 +1,31 @@
+local function update_score(self)
+	label.set_text("#score", ("%d"):format(self.score))
+end
+
+function init(self)
+	self.score = 0
+	self.hit_top = false
+	self.hit_bottom = false
+	update_score(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("increase_score_top") and self.hit_top == false then
+		self.score = self.score + 1
+		self.hit_top = true
+		self.hit_bottom = false
+		update_score(self)
+
+	elseif message_id == hash("increase_score_bottom") and self.hit_bottom == false then
+		self.score = self.score + 1
+		self.hit_bottom = true
+		self.hit_top = false
+		update_score(self)
+
+	elseif message_id == hash("game_over") then
+		self.score = 0
+		self.hit_top = false
+		self.hit_bottom = false
+		update_score(self)
+	end
+end
