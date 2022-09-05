@@ -1,5 +1,9 @@
 local function update_score(self)
 	label.set_text("#score", ("%d"):format(self.score))
+	if self.score % 3 == 0 and self.score > 0 then
+		genColor = getColor(100, 100, 100, 240, 240, 240)
+		msg.post("@render:", "clear_color", { color = vmath.vector4(genColor.r/255.0, genColor.g/255.0, genColor.b/255.0, 1.0) } )
+	end
 end
 
 function init(self)
@@ -7,6 +11,8 @@ function init(self)
 	self.hit_top = false
 	self.hit_bottom = false
 	update_score(self)
+	msg.post("#play", "enable")
+	msg.post("#end", "disable")
 end
 
 function on_message(self, message_id, message, sender)
@@ -23,9 +29,59 @@ function on_message(self, message_id, message, sender)
 		update_score(self)
 
 	elseif message_id == hash("game_over") then
+		self.hit_top = false
+		self.hit_bottom = false
+		msg.post("#play", "enable")
+		msg.post("#end", "enable")
+
+	elseif message_id == hash("game_start") then
 		self.score = 0
 		self.hit_top = false
 		self.hit_bottom = false
 		update_score(self)
+		msg.post("#play", "disable")
+		msg.post("#end", "disable")
+		msg.post("@render:", "clear_color", { color = vmath.vector4(0, 174/255.0, 239/255.0, 1.0) } )
 	end
+end
+
+function getColor(r1, g1, b1, r2, g2, b2)
+	local out = {}
+
+	-- set the base range of numbers (0 to high-low)
+	local rRange = math.abs(r1 - r2)
+	local gRange = math.abs(g1 - g2)
+	local bRange = math.abs(b1 - b2)
+
+	-- set the modifier for each color with a common random
+	local rRand = math.random()
+	local gRand = math.random()
+	local bRand = math.random()
+	local rMod = rRand * rRange
+	local gMod = gRand * gRange
+	local bMod = bRand * bRange
+
+	if r1 < r2 then
+		out.r = rMod + r1
+	else
+		out.r = r1 - rMod
+	end
+
+	if g1 < g2 then
+		out.g = gMod + g1
+	else
+		out.g = g1 - gMod
+	end
+
+	if b1 < b2 then
+		out.b = bMod + b1
+	else
+		out.b = b1 - bMod
+	end
+
+	out.r = math.floor(out.r)
+	out.g = math.floor(out.g)
+	out.b = math.floor(out.b)
+
+	return out
 end

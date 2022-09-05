@@ -1,7 +1,7 @@
-font: "/assets/font/smallest_pixel-7.ttf"
-material: "/assets/font/pixelfont.material"
+font: "/assets/font/RNSSanz-Medium.ttf"
+material: "/builtins/fonts/font.material"
 size: 190
-antialias: 0
+antialias: 1
 alpha: 1.0
 outline_alpha: 0.0
 outline_width: 0.0

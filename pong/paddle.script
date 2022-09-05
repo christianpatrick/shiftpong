@@ -6,6 +6,7 @@ function init(self)
 	reverse = false
 	count = 0
 	self.original_position = go.get_position()
+	self.speed = vmath.vector3(0, 0, 0)
 end
 
 function update(self, dt)
@@ -48,7 +49,7 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("click") and self.speed == vmath.vector3(0, 0, 0) then
-		msg.post("ball", "game_restart")
+		msg.post("ball", "game_start")
 	elseif action_id == hash("click") and action.pressed then
 		if action.pressed and count > 0 then
 			if reverse then
@@ -65,10 +66,10 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("game_over") then
-		go.set_position(self.original_position)
 		self.speed = vmath.vector3(0, 0, 0)
 		reverse = false
-	elseif message_id == hash("game_restart") then
+	elseif message_id == hash("game_start") then
+		go.set_position(self.original_position)
 		self.speed = vmath.vector3(500, 0, 0)
 	end
 end
